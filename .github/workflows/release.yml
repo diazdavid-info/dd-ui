@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
       - run: pnpm install
+      - run: pnpm build
       - run: npx changeset version
       - run: |
           git config user.name "github-actions[bot]"
