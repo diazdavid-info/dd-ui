@@ -1,5 +1,11 @@
 # dd-ui
 
+## 0.0.3
+
+### Patch Changes
+
+- 6995b2a: fix build
+
 ## 0.0.2
 
 ### Patch Changes
