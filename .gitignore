@@ -28,3 +28,8 @@ pnpm-debug.log*
 *.tsbuildinfo
 
 .turbo
+
+*storybook.log
+storybook-static
+
+**/stories
