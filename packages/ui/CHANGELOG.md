@@ -1,5 +1,11 @@
 # dd-ui
 
+## 0.0.2
+
+### Patch Changes
+
+- da7b367: init github action and publish library
+
 ## 0.0.1
 
 ### Patch Changes
