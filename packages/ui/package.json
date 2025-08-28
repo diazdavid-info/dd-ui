@@ -2,6 +2,12 @@
   "name": "diaz-ui",
   "version": "0.0.1",
   "type": "module",
+  "main": "dist/ui.umd.cjs",
+  "module": "dist/ui.js",
+  "types": "dist/ui.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -b && vite build",
     "check-types": "tsc --noEmit",

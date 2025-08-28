@@ -11,8 +11,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/main.ts'),
-      name: 'dd-ui',
-      fileName: 'dd-ui',
+      name: 'ui',
+      fileName: 'ui',
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
