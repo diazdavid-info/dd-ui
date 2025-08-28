@@ -22,4 +22,5 @@ jobs:
       - run: git add .
       - run: git commit -m "Version packages [skip ci]" || echo "No changes to commit"
       - run: git push
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - run: npx changeset publish
