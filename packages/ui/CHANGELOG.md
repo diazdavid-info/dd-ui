@@ -1,5 +1,11 @@
 # dd-ui
 
+## 0.0.5
+
+### Patch Changes
+
+- 9a5424d: move dependencies
+
 ## 0.0.4
 
 ### Patch Changes
