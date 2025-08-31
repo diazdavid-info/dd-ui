@@ -5,6 +5,7 @@
   "main": "dist/ui.umd.cjs",
   "module": "dist/ui.js",
   "types": "dist/ui.d.ts",
+  "style": "dist/ui.css",
   "files": [
     "dist"
   ],
