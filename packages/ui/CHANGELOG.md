@@ -1,5 +1,11 @@
 # dd-ui
 
+## 0.0.6
+
+### Patch Changes
+
+- ab47dad: Import global Storybook styles in `ui` package main entry file
+
 ## 0.0.5
 
 ### Patch Changes
