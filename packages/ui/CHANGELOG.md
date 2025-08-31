@@ -1,5 +1,11 @@
 # dd-ui
 
+## 0.0.7
+
+### Patch Changes
+
+- e7e7788: Include `style` field in `ui` package manifest.
+
 ## 0.0.6
 
 ### Patch Changes
