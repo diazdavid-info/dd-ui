@@ -10,7 +10,7 @@ WORKDIR /app
 RUN npm install -g pnpm@${PNPM_VERSION}
 
 # Copiamos solo lo necesario para cachear mejor la instalación
-COPY pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY packages/ui/package.json packages/ui/pnpm.* packages/ui/
 
 # Instalamos solo las dependencias necesarias para packages/ui
