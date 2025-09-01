@@ -10,7 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node --run build-storybook",
     "build-storybook": "storybook build",
     "check-types": "tsc --noEmit",
     "dev": "vite",
