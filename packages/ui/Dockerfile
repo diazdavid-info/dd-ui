@@ -14,7 +14,7 @@ COPY pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY packages/ui/package.json packages/ui/pnpm.* packages/ui/
 
 # Instalamos solo las dependencias necesarias para packages/ui
-RUN pnpm install --filter ./packages/ui --frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
 # Copiamos los archivos fuente (sin arrastrar todo el repo)
 COPY packages/ui ./packages/ui
