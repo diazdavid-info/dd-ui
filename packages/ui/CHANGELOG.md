@@ -1,5 +1,11 @@
 # dd-ui
 
+## 0.0.8
+
+### Patch Changes
+
+- a2c71d3: Add support for `radius` and `size` props in Button component and stories
+
 ## 0.0.7
 
 ### Patch Changes
