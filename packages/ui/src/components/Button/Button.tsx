@@ -3,28 +3,35 @@ import { cn } from '../../libs/utils.ts'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 const button = cva(
-  'flex items-center justify-center px-2 py-1 cursor-pointer disabled:bg-ui-primary/10 disabled:cursor-not-allowed border',
+  'flex items-center justify-center gap-2 cursor-pointer disabled:bg-ui-primary/10 disabled:cursor-not-allowed border',
   {
     variants: {
       variant: {
-        solid: 'active:bg-ui-primary hover:bg-ui-primary/50',
-        outline: 'active:bg-ui-primary hover:bg-ui-primary/50',
+        solid: 'active:bg-ui-primary hover:brightness-80',
+        outline: 'active:bg-ui-primary hover:brightness-80',
       },
       color: {
         primary: '',
         secondary: '',
       },
       radius: {
-        none: '',
-        sm: '',
-        lg: '',
+        none: 'rounded-none',
+        sm: 'rounded',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        full: 'rounded-full',
+      },
+      size: {
+        sm: 'px-3 py-1',
+        md: 'px-4 py-2',
+        lg: 'px-5 py-3',
       },
     },
     compoundVariants: [
       {
         variant: 'solid',
         color: 'primary',
-        class: 'bg-ui-primary text-dark border-transparent',
+        class: 'bg-ui-primary text-light border-transparent',
       },
       {
         variant: 'solid',
@@ -45,6 +52,8 @@ const button = cva(
     defaultVariants: {
       variant: 'solid',
       color: 'primary',
+      radius: 'sm',
+      size: 'sm',
     },
   },
 )
@@ -58,11 +67,13 @@ export const Button = ({
   className,
   variant,
   color,
+  radius,
+  size,
   ...props
 }: ButtonProps) => {
   return (
     <button
-      className={cn('', button({ variant, color }), className)}
+      className={cn('', button({ variant, color, radius, size }), className)}
       {...props}
     >
       {children}
