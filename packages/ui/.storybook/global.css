@@ -2,11 +2,9 @@
 
 
 @theme {
-    --color-ui-primary: #fca311;
-    --color-ui-secondary: #14213d;
-    --color-neutral: #e5e5e5;
+    --color-ui-primary: #06b6d4;
+    --color-ui-secondary: #64748b;
+
     --color-dark: #000000;
     --color-light: #ffffff;
-
-    --font-inter: "Inter", system-ui, sans-serif;
 }

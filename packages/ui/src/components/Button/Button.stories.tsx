@@ -14,9 +14,11 @@ const meta = {
     color: { control: 'select', options: ['primary', 'secondary'] },
     radius: { control: 'select', options: ['none', 'sm', 'md', 'lg', 'full'] },
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
+    disabled: { control: 'boolean' },
   },
   args: {
     onClick: fn(),
+    disabled: false,
   },
 } satisfies Meta<typeof Button>
 
@@ -120,12 +122,12 @@ export const WithIcon: Story = {
 
     await step('Renders the button on screen', async () => {
       await expect(
-        canvas.getByRole('button', { name: 'BUTTON' }),
+        canvas.getByRole('button', { name: 'UPLOAD FILE' }),
       ).toBeInTheDocument()
     })
 
     await step('Fires the event when clicked', async () => {
-      await userEvent.click(canvas.getByRole('button', { name: 'BUTTON' }))
+      await userEvent.click(canvas.getByRole('button', { name: 'UPLOAD FILE' }))
 
       await expect(args.onClick).toHaveBeenCalled()
     })
@@ -158,15 +160,39 @@ export const Icon: Story = {
     const canvas = within(canvasElement)
 
     await step('Renders the button on screen', async () => {
+      await expect(canvas.getByRole('button')).toBeInTheDocument()
+    })
+
+    await step('Fires the event when clicked', async () => {
+      await userEvent.click(canvas.getByRole('button'))
+
+      await expect(args.onClick).toHaveBeenCalled()
+    })
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    children: 'BUTTON',
+    variant: 'solid',
+    color: 'primary',
+    radius: 'sm',
+    size: 'sm',
+    disabled: true,
+  },
+  play: async ({ args, canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step('Renders the button on screen', async () => {
       await expect(
         canvas.getByRole('button', { name: 'BUTTON' }),
       ).toBeInTheDocument()
     })
 
-    await step('Fires the event when clicked', async () => {
+    await step('Not fires the event when clicked', async () => {
       await userEvent.click(canvas.getByRole('button', { name: 'BUTTON' }))
 
-      await expect(args.onClick).toHaveBeenCalled()
+      await expect(args.onClick).not.toHaveBeenCalled()
     })
   },
 }

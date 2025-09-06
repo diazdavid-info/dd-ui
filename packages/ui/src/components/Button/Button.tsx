@@ -3,12 +3,12 @@ import { cn } from '../../libs/utils.ts'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 const button = cva(
-  'flex items-center justify-center gap-2 cursor-pointer disabled:bg-ui-primary/10 disabled:cursor-not-allowed border',
+  'flex items-center justify-center gap-2 border focus-visible:outline-none',
   {
     variants: {
       variant: {
-        solid: 'active:bg-ui-primary hover:brightness-80',
-        outline: 'active:bg-ui-primary hover:brightness-80',
+        solid: 'border-transparent',
+        outline: '',
       },
       color: {
         primary: '',
@@ -26,17 +26,21 @@ const button = cva(
         md: 'px-4 py-2',
         lg: 'px-5 py-3',
       },
+      disabled: {
+        true: 'opacity-30',
+        false: 'hover:brightness-80 cursor-pointer',
+      },
     },
     compoundVariants: [
       {
         variant: 'solid',
         color: 'primary',
-        class: 'bg-ui-primary text-light border-transparent',
+        class: 'bg-ui-primary text-dark',
       },
       {
         variant: 'solid',
         color: 'secondary',
-        class: 'bg-ui-secondary text-light border-transparent',
+        class: 'bg-ui-secondary text-light',
       },
       {
         variant: 'outline',
@@ -54,12 +58,13 @@ const button = cva(
       color: 'primary',
       radius: 'sm',
       size: 'sm',
+      disabled: false,
     },
   },
 )
 
 export interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'>,
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color' | 'disabled'>,
     VariantProps<typeof button> {}
 
 export const Button = ({
@@ -69,11 +74,17 @@ export const Button = ({
   color,
   radius,
   size,
+  disabled,
   ...props
 }: ButtonProps) => {
   return (
     <button
-      className={cn('', button({ variant, color, radius, size }), className)}
+      className={cn(
+        '',
+        button({ variant, color, radius, size, disabled }),
+        className,
+      )}
+      disabled={disabled ?? undefined}
       {...props}
     >
       {children}
