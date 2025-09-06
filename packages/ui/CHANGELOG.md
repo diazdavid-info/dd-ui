@@ -1,5 +1,11 @@
 # dd-ui
 
+## 0.0.9
+
+### Patch Changes
+
+- 0203b8b: Add `disabled` prop to Button component, update styles, and extend stories
+
 ## 0.0.8
 
 ### Patch Changes
